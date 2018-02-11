@@ -2,7 +2,7 @@ FROM jjmerelo/test-perl6:latest
 LABEL version="1.0" maintainer="JJ Merelo <jjmerelo@GMail.com>"
 
 
-RUN apk update && apk upgrade && apk add aspell libssl1.0 && apk add ca-certificates wget && update-ca-certificates
+RUN apk update && apk upgrade && apk add libssl1.0 && apk add ca-certificates wget && update-ca-certificates
 RUN ln -s /lib/libssl.so.1.0.0 /lib/libssl.so
 RUN ln -s /var/lib/libssl.so.1.0.0 /var/lib/libssl.so
 
