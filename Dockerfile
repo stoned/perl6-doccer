@@ -13,7 +13,7 @@ RUN zef install --deps-only .
 RUN zef install LWP::Simple
 
 # Will run this
-ENTRYPOINT perl6 -v && zef install --deps-only . && zef test .
+ENTRYPOINT prove -e perl6 xt t
 
 # Repeating mother's env
 ENV PATH="/root/.rakudobrew/bin:${PATH}"
