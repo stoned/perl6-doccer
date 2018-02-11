@@ -6,7 +6,7 @@ RUN apk update && apk upgrade && apk add libssl1.0 && apk add ca-certificates wg
 RUN ln -s /lib/libssl.so.1.0.0 /lib/libssl.so
 RUN ln -s /var/lib/libssl.so.1.0.0 /var/lib/libssl.so
 
-RUN cd /tmp/ && wget https://github.com/perl6/doc/raw/master/META6.json &&  ls -alt && zef install --deps-only . && zef install LWP::Simple
+RUN cd /tmp/ && wget https://github.com/perl6/doc/raw/master/META6.json && zef install --deps-only . && zef install LWP::Simple
 
 # Will run this
 ENTRYPOINT prove -e perl6 xt t
