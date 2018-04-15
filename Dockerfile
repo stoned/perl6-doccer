@@ -6,7 +6,7 @@ RUN ln -s /lib/libssl.so.1.0.0 /lib/libssl.so
 RUN ln -s /var/lib/libssl.so.1.0.0 /var/lib/libssl.so
 
 ADD https://github.com/perl6/doc/raw/master/META6.json /tmp/
-RUN cd /tmp/ && zef install --deps-only . && zef install LWP::Simple
+RUN cd /tmp/ &&  zef install --force LWP::Simple && zef install --deps-only .
 
 # Will run this
 ENTRYPOINT prove -e perl6 t
