@@ -1,5 +1,5 @@
 FROM jjmerelo/test-perl6:latest
-LABEL version="1.0.2" maintainer="JJ Merelo <jjmerelo@GMail.com>"
+LABEL version="1.0.3" maintainer="JJ Merelo <jjmerelo@GMail.com>"
 
 RUN apk update && apk upgrade && apk add graphviz libssl1.0 && apk add ca-certificates wget && update-ca-certificates
 RUN ln -s /lib/libssl.so.1.0.0 /lib/libssl.so
