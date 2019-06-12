@@ -7,7 +7,7 @@ ADD https://github.com/perl6/doc/raw/master/META6.json /tmp/
 RUN cd /tmp/ && zef update && zef install --deps-only .
 
 # Will run this
-ENTRYPOINT P6_DOC_TEST_VERBOSE=1 prove -e perl6 t
+ENTRYPOINT P6_DOC_TEST_VERBOSE=1 prove6 t
 
 # Repeating mother's env
 ENV PATH="/root/.rakudobrew/bin:${PATH}"
