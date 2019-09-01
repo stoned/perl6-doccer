@@ -1,15 +1,13 @@
-FROM jjmerelo/test-perl6:latest
-LABEL version="2.0.0" maintainer="JJ Merelo <jjmerelo@GMail.com>"
+FROM jjmerelo/perl6-test-openssl:latest
+LABEL version="3.1" maintainer="JJ Merelo <jjmerelo@GMail.com>"
 
-RUN apk update && apk upgrade && apk add graphviz libssl1.0 && apk add ca-certificates wget && update-ca-certificates
-RUN ln -s /lib/libssl.so.1.0.0 /lib/libssl.so
-RUN ln -s /var/lib/libssl.so.1.0.0 /var/lib/libssl.so
+RUN apk update && apk upgrade && apk add graphviz  && apk add ca-certificates wget && update-ca-certificates
 
 ADD https://github.com/perl6/doc/raw/master/META6.json /tmp/
-RUN cd /tmp/ &&  zef install --deps-only .
+RUN cd /tmp/ && zef update && zef install --deps-only .
 
 # Will run this
-ENTRYPOINT P6_DOC_TEST_VERBOSE=1 prove -e perl6 t
+ENTRYPOINT P6_DOC_TEST_VERBOSE=1 prove6 t
 
 # Repeating mother's env
 ENV PATH="/root/.rakudobrew/bin:${PATH}"
