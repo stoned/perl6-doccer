@@ -9,7 +9,7 @@ RUN apk update && apk upgrade && apk add openssl-dev graphviz  && apk add ca-cer
 USER raku
 RUN zef install OpenSSL
 
-RUN cd /tmp/ && wget https://github.com/stoned/doc/raw/master/META6.json && zef update && zef install --deps-only .
+RUN cd /tmp/ && wget https://github.com/stoned/doc/raw/master/META6.json && zef update && zef install --force-build --deps-only .
 
 VOLUME $DIR
 WORKDIR $DIR
